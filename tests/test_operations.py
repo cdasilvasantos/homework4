@@ -1,12 +1,13 @@
+'''Testing Operations'''
 import pytest
-from decimal import Decimal
+from decimal import Decimal # pylint: disable=wrong-import-order
 from calculator.calculation import Calculation
-from calculator.operations import add, subtract, multiply, divide
+from calculator.operations import add, subtract, multiply, divide # pylint: disable=unused-import
 
 
-def test_operation(a, b, operation, expected):
+def test_operation(a, b, operation, expected): # pylint: disable=invalid-name
     '''Testing various operations'''
-    calculation = Calculation.create(a, b, operation)
+    calculation = Calculation(a, b, operation)
     assert calculation.perform() == expected, f"{operation.__name__} operation failed"
 
 # Keeping the divide by zero test as is since it tests a specific case

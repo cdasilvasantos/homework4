@@ -1,3 +1,7 @@
+"""
+Module docstring: This module contains tests for the main module.
+"""
+
 import pytest
 from main import calculate_and_print  # Ensure this import matches your project structure
 
@@ -12,7 +16,10 @@ from main import calculate_and_print  # Ensure this import matches your project 
     ("a", "3", 'add', "Invalid number input: a or 3 is not a valid number."),  # Testing invalid number input
     ("5", "b", 'subtract', "Invalid number input: 5 or b is not a valid number.")  # Testing another invalid number input
 ])
-def test_calculate_and_print(a_string, b_string, operation_string,expected_string, capsys):
+def test_calculate_and_print(a_string, b_string, operation_string, expected_string, capsys):
+    """
+    Test the calculate_and_print function with various input scenarios.
+    """
     calculate_and_print(a_string, b_string, operation_string)
     captured = capsys.readouterr()
     assert captured.out.strip() == expected_string
